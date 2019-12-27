@@ -3,40 +3,46 @@ import './NumbersInput.css';
 
 export default function NumbersInput() {
 
-	const [nums1, setNums1] = useState([]);
+	const [nums, setNums] = useState([]);
 	
-	function handleChange(e) {
-		const newItem = e.target.value;
+	function handleChange(e, index) {
+		const value = e.target.value
+		const newItem = value + index;
 		if(newItem === '') {
-			return null;
+			setNums([...nums, 0]);
 		} else {
-			setNums1([...nums1, +newItem]);
+			setNums([...nums, newItem]);
 		} 
+		console.log(nums);
 
-		if(nums1.length === 8) {
-			console.log('Array is full');
-		}
+		// if(nums.length === 9) {
+		// 	let finalArray = [];
+		// 	for(let i = 0; i < nums.length; i +=3) {
+		// 		finalArray.push(nums.slice(i, 3 + i));
+		// 	}
+		// 	console.log(finalArray);
+		// }
 	}
 
 	return (
 		<div>
 			<h1>Enter numbers</h1>
 				<form className='width-size'>
-					<input type='text' maxLength='1' onChange={(e) => handleChange(e)}></input>
-					<input type='text' maxLength='1' onChange={(e) => handleChange(e)}></input>
-					<input type='text' maxLength='1' onChange={(e) => handleChange(e)}></input>
+					<input type='text' maxLength='1' onChange={(e) => handleChange(e, 1)}></input>
+					<input type='text' maxLength='1' onChange={(e) => handleChange(e, 2)}></input>
+					<input type='text' maxLength='1' onChange={(e) => handleChange(e, 3)}></input>
 				</form>
 				<form className='width-size'>
-					<input type='text' maxLength='1' onChange={(e) => handleChange(e)}></input>
-					<input type='text' maxLength='1' onChange={(e) => handleChange(e)}></input>
-					<input type='text' maxLength='1' onChange={(e) => handleChange(e)}></input>
+					<input type='text' maxLength='1' onChange={(e) => handleChange(e, 4)}></input>
+					<input type='text' maxLength='1' onChange={(e) => handleChange(e, 5)}></input>
+					<input type='text' maxLength='1' onChange={(e) => handleChange(e, 6)}></input>
 				</form>
 				<form className='width-size'>
-					<input type='text' maxLength='1' onChange={(e) => handleChange(e)}></input>
-					<input type='text' maxLength='1' onChange={(e) => handleChange(e)}></input>
-					<input type='text' maxLength='1' onChange={(e) => handleChange(e)}></input>
+					<input type='text' maxLength='1' onChange={(e) => handleChange(e, 7)}></input>
+					<input type='text' maxLength='1' onChange={(e) => handleChange(e, 8)}></input>
+					<input type='text' maxLength='1' onChange={(e) => handleChange(e, 9)}></input>
 				</form>
-				<label>{nums1}</label>
+				<label>{nums}</label>
 			<h2></h2>
 			<div>
 			</div>
